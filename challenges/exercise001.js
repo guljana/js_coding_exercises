@@ -73,23 +73,68 @@ function reverseWord(word) {
 
 function reverseAllWords(words) {
   if (words === undefined) throw new Error("words is required");
-  // Add your code here!
+  var revArray = [];
+  var reversed = "";    
+
+  for(var i=0; i<words.length; i++){
+    reversed = "";    
+    var word = words[i];    
+            for (var j = word.length - 1; j >= 0; j--){        
+              reversed += word[j];
+            }  
+    revArray[i]=reversed;
+
+    }
+  return revArray;
 }
 
 function countLinuxUsers(users) {
   if (users === undefined) throw new Error("users is required");
-  // Add your code here!
+  var count=0;
+  for(var i=0; i<users.length; i++){
+    if(users[i].type == "Linux"){
+      count++;
+    }
+  }
+
+  return count
 }
 
 function getMeanScore(scores) {
   if (scores === undefined) throw new Error("scores is required");
-  // Add your code here!
+  var count=0;
+  for(var i=0; i<scores.length; i++){
+    count+=scores[i];
+  }
+
+  var output=count/scores.length;
+  if (checkNumberIfFloat(output) == true){
+    var n = output.toFixed(2);
+     return parseFloat(n)
+
+  }else{
+    return output
+
+  }
 }
 
 function simpleFizzBuzz(n) {
   if (n === undefined) throw new Error("n is required");
-  // Add your code here!
-}
+  var res=4;
+      if(n % 3 === 0 && n % 5 === 0){
+          res="fizzbuzz";
+      }
+
+      else if(n % 3 === 0){
+        res="fizz";
+      }
+
+      else if(n % 5 === 0){
+        res="buzz";
+      }
+
+      return res
+ }
 
 module.exports = {
   capitalize,
