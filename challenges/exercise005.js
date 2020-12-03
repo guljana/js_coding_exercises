@@ -1,38 +1,100 @@
 const findNextNumber = (nums, n) => {
   if (nums === undefined) throw new Error("nums is required");
   if (n === undefined) throw new Error("n is required");
-  // Your code here!
+  var index = nums.indexOf(n);
+  if (index < 0 || index == nums.length - 1) {
+      return null;
+  }
+  return nums[index + 1];
 };
 
 const count1sand0s = str => {
   if (str === undefined) throw new Error("str is required");
-  // Your code here!
+  var sum = 0;
+
+  for (var i = 0, length = str.length; i < length; i++) {
+      sum += Number(str[i]);
+  }
+
+  return {
+      '1': sum,
+      '0': str.length - sum
+  };
 };
 
 const reverseNumber = n => {
   if (n === undefined) throw new Error("n is required");
-  // Your code here!
+  n = n + "";
+  return parseInt(n.split("").reverse().join(""));
 };
 
 const sumArrays = arrs => {
   if (arrs === undefined) throw new Error("arrs is required");
-  // Your code here!
+  var count = 0;
+
+  for (var i = 0; i < arrs.length; i++) {
+
+      count += arrs[i].reduce(function(a, b) {
+          return a + b;
+      }, 0);
+
+
+  }
+
+  return count;
 };
+
+
 
 const arrShift = arr => {
   if (arr === undefined) throw new Error("arr is required");
-  // Your code here!
+  if (arr.length >= 2) {
+      [arr[0], arr[arr.length - 1]] = [arr[arr.length - 1], arr[0]];
+
+  }
+  return arr;
 };
 
 const findNeedle = (haystack, searchTerm) => {
   if (haystack === undefined) throw new Error("haystack is required");
   if (searchTerm === undefined) throw new Error("searchTerm is required");
-  // Your code here!
+  for (var prop in haystack) {
+
+      if (typeof haystack[prop] === 'string') {
+          if (haystack[prop].toLowerCase().includes(searchTerm.toLowerCase())) {
+              return true;
+          }
+      }
+
+  }
+  return false;
+
 };
 
 const getWordFrequencies = str => {
   if (str === undefined) throw new Error("str is required");
-  // Your code here!
+  //           /[a-z]+/gi   /\w+/gi
+  var pattern = /[a-z]+/gi,
+      string = str,
+      matchedWords = string.match(pattern);
+
+  var counts = matchedWords.reduce(function(stats, word) {
+
+      if (stats.hasOwnProperty(word)) {
+          stats[word] = stats[word] + 1;
+      } else {
+
+          stats[word] = 1;
+      }
+      return stats;
+
+  }, {});
+
+  console.log(counts);
+  return counts;
+
+
+
 };
 
 module.exports = {
