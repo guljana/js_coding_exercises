@@ -74,8 +74,8 @@ const findNeedle = (haystack, searchTerm) => {
 const getWordFrequencies = str => {
   if (str === undefined) throw new Error("str is required");
   //           /[a-z]+/gi   /\w+/gi
-  var pattern = /[a-z]+/gi,
-      string = str,
+  var pattern =  /\w+/g,
+      string = str.toLowerCase(),
       matchedWords = string.match(pattern);
 
   var counts = matchedWords.reduce(function(stats, word) {
