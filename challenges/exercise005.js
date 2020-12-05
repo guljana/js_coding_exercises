@@ -90,7 +90,6 @@ const getWordFrequencies = str => {
 
   }, {});
 
-  console.log(counts);
   return counts;
 
 
