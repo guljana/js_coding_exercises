@@ -6,9 +6,9 @@ const sumDigits = n => {
   if (n === undefined) throw new Error("n is required");
   let sum = 0;
   while (n) {
-      digit = n % 10;
-      sum += digit;
-      n = (n - digit) / 10;
+    digit = n % 10;
+    sum += digit;
+    n = (n - digit) / 10;
   }
   return sum;
 };
@@ -24,6 +24,14 @@ const sumDigits = n => {
 const createRange = (start, end, step) => {
   if (start === undefined) throw new Error("start is required");
   if (end === undefined) throw new Error("end is required");
+  if (step === undefined) step = 1;
+  let list = [];
+  for (var i = start; i <= end; i += step) {
+
+    list.push(i);
+  }
+
+return list;
 };
 
 /**
@@ -58,6 +66,38 @@ const createRange = (start, end, step) => {
 const getScreentimeAlertList = (users, date) => {
   if (users === undefined) throw new Error("users is required");
   if (date === undefined) throw new Error("date is required");
+  const userArr = [];
+  let count=0;
+  let screentime=0;
+  for (var i = 0; i < users.length; i++) {
+    for (var j = 0; j < users[i].screenTime.length; j++) {
+
+        if(users[i].screenTime[j].date == date){
+          if(users[i].screenTime[j].usage.twitter != undefined && users[i].screenTime[j].usage.twitter>0 ){
+           // console.log("out "+users[i].screenTime[j].usage.twitter);
+            screentime+=users[i].screenTime[j].usage.twitter;
+          }   if(users[i].screenTime[j].usage.instagram != undefined && users[i].screenTime[j].usage.instagram>0 ){
+            screentime+=users[i].screenTime[j].usage.instagram;
+          }   if(users[i].screenTime[j].usage.facebook != undefined && users[i].screenTime[j].usage.facebook>0 ){
+            screentime+=users[i].screenTime[j].usage.facebook;
+          }   if(users[i].screenTime[j].usage.mapMyRun != undefined && users[i].screenTime[j].usage.mapMyRun>0 ){
+            screentime+=users[i].screenTime[j].usage.mapMyRun;
+          }   if(users[i].screenTime[j].usage.safari != undefined && users[i].screenTime[j].usage.safari>0 ){
+            screentime+=users[i].screenTime[j].usage.safari;
+          }   if(users[i].screenTime[j].usage.whatsApp != undefined && users[i].screenTime[j].usage.whatsApp>0 ){
+            screentime+=users[i].screenTime[j].usage.whatsApp;
+          }
+
+        }
+    }//end if inner for
+    if(screentime>100){
+      userArr[count]=users[i].username;
+    }
+    screentime=0;
+}//end of out loop
+ //console.log("users "+users);
+
+  return userArr;
 };
 
 /**
@@ -72,6 +112,16 @@ const getScreentimeAlertList = (users, date) => {
  */
 const hexToRGB = hexStr => {
   if (hexStr === undefined) throw new Error("hexStr is required");
+  if(hexStr.length != 6){
+   return [];
+}
+var aRgbHex = hexStr.match(/.{1,2}/g);
+var aRgb = [
+    parseInt(aRgbHex[0], 16),
+    parseInt(aRgbHex[1], 16),
+    parseInt(aRgbHex[2], 16)
+];
+return aRgb;
 };
 
 /**

@@ -6,10 +6,10 @@
  */
 const sumMultiples = arr => {
   if (arr === undefined) throw new Error("arr is required");
-  var sum = 0;
-  for (var i = 1; i < arr; i++) {
-    if (arr[i] % 3 == 0 || arr[i] % 5 == 0) { // gives reminder of 0, divisible by either 3 or 5
-      sum += i; // add in sum if that's the case.
+  let sum = 0;
+  for (var i = 1; i < arr.length; i++) {
+    if (arr[i] % 3 === 0 || arr[i] % 5 === 0) { // gives reminder of 0, divisible by either 3 or 5
+      sum += arr[i]; // add in sum if that's the case.
     }
   }
   return sum
@@ -23,7 +23,8 @@ const sumMultiples = arr => {
  */
 const isValidDNA = str => {
   if (str === undefined) throw new Error("str is required");
-  if (str.includes("C") || str.includes("G") || str.includes("T") || str.includes("A")) {
+  
+  if (str.toLowerCase().includes("c") || str.toLowerCase().includes("g") || str.toLowerCase().includes("t") || str.toLowerCase().includes("a")) {
     return true;
 
   } else {
@@ -38,19 +39,18 @@ const isValidDNA = str => {
  */
 const getComplementaryDNA = str => {
   if (str === undefined) throw new Error("str is required");
-  str = str.toUpperCase();
   let complement = '';
   for (let i = 0; i < str.length; i++) {
-    if (str[i] === 'T') {
+    if (str[i].toUpperCase() === 'T') {
       complement += 'A';
     }
-    if (str[i] === 'A') {
+    if (str[i].toUpperCase() === 'A') {
       complement += 'T';
     }
-    if (str[i] === 'C') {
+    if (str[i].toUpperCase() === 'C') {
       complement += 'G';
     }
-    if (str[i] === 'G') {
+    if (str[i].toUpperCase() === 'G') {
       complement += 'C';
     }
   }
@@ -83,19 +83,26 @@ const isItPrime = n => {
  */
 const createMatrix = (n, fill) => {
   if (n === undefined) throw new Error("n is required");
-  if (fill === undefined) throw new Error("fill is required");
-  const x = new Array(n);
+  let x = new Array(n);
+
+
+
 
   for (var i = 0; i < x.length; i++) {
     x[i] = new Array(n);
   }
 
+
   for (var i = 0; i < n; i++) {
+  //  console.log("here outer");
+
     for (var j = 0; j < n; j++) {
+      //console.log("here inner");
       x[i][j] = fill;
     }
-
-    return x;
+  }
+  return x;
+   
   };
 
   /**
@@ -123,11 +130,10 @@ const createMatrix = (n, fill) => {
       }
     }
     return false;
-  }
+  
 };
 
-module.exports = {
-  sumMultiples,
+module.exports = {sumMultiples,
   isValidDNA,
   getComplementaryDNA,
   isItPrime,
