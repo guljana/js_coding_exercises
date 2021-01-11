@@ -1,8 +1,7 @@
 const { sumDigits,
     createRange,
     getScreentimeAlertList,
-    hexToRGB,
-    findWinner
+    hexToRGB
 } = require("../challenges/exercise007");
 
 describe("sumDigits", () => {
@@ -71,10 +70,3 @@ describe("hexToRGB", () => {
 });
 
 
-describe("findWinner", () => {
-    test(" should transform the hex code into an RGB code in the format,", () => {
-        expect(findWinner("ff0000")).toStrictEqual([255, 0, 0]);
-
-    });
-  
-});
