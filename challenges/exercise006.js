@@ -6,9 +6,7 @@
  */
 const sumMultiples = arr => {
   if (arr === undefined) throw new Error("arr is required");
-
   return arr.filter((num) => { return num % 3 === 0 || num % 5 === 0; }).reduce(function (a, b) { return a + b; }, 0);
-
 };
 
 /**
@@ -18,10 +16,8 @@ const sumMultiples = arr => {
  */
 const isValidDNA = str => {
   if (str === undefined) throw new Error("str is required");
-
   if (str.toLowerCase().includes("c") || str.toLowerCase().includes("g") || str.toLowerCase().includes("t") || str.toLowerCase().includes("a")) {
     return true;
-
   } else {
     return false;
   }
@@ -50,7 +46,6 @@ const getComplementaryDNA = str => {
     }
   }
   return complement;
-
 };
 
 /**
@@ -79,16 +74,11 @@ const isItPrime = n => {
 const createMatrix = (n, fill) => {
   if (n === undefined) throw new Error("n is required");
   let x = new Array(n);
-
   for (let i = 0; i < x.length; i++) {
     x[i] = new Array(n);
   }
-
   for (let i = 0; i < n; i++) {
-    //  console.log("here outer");
-
     for (let j = 0; j < n; j++) {
-      //console.log("here inner");
       x[i][j] = fill;
     }
   }

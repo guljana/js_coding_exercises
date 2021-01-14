@@ -13,36 +13,19 @@ function generateInitials(firstName, lastName) {
 function addVAT(originalPrice, vatRate) {
   if (originalPrice === undefined) throw new Error("originalPrice is requied");
   if (vatRate === undefined) throw new Error("vatRate is required");
-  let vat = (originalPrice * vatRate) / 100;
-  let output = originalPrice + vat;//(originalPrice + vat).toFixed(2)
-  if (checkNumberIfFloat(output) == true) {
-    let n = output.toFixed(2);
-    return parseFloat(n)
-
-  } else {
-    return output
-
-  }
+  const vat = (originalPrice * vatRate) / 100;
+  return parseFloat((originalPrice + vat).toFixed(2))
 }
 
-function checkNumberIfFloat(output) {
-  return Number(output) === output && output % 1 !== 0;
-}
 
 function getSalePrice(originalPrice, reduction) {
   if (originalPrice === undefined) throw new Error("originalPrice is required");
   if (reduction === undefined) throw new Error("reduction is required");
 
-  let red = (originalPrice * reduction) / 100;
-  let output = originalPrice - red;//(originalPrice + vat).toFixed(2)
-  if (checkNumberIfFloat(output) == true) {
-    let n = output.toFixed(2);
-    return parseFloat(n)
+  const red = (originalPrice * reduction) / 100;
 
-  } else {
-    return output
+  return parseFloat((originalPrice - red).toFixed(2))
 
-  }
 }
 
 function getMiddleCharacter(str) {
@@ -69,15 +52,13 @@ function reverseWord(word) {
 function reverseAllWords(words) {
   if (words === undefined) throw new Error("words is required");
 
-  const revwords = words.map(word => word.split("").reverse().join(""));
-  return revwords;
+  return words.map(word => word.split("").reverse().join(""));
 
 }
 
 function countLinuxUsers(users) {
   if (users === undefined) throw new Error("users is required");
-  let ages = users.filter((user) => { return user.type === 'Linux'; }).reduce(function (result) { return result + 1; }, 0);
-  return ages;
+  return users.filter((user) => { return user.type === 'Linux'; }).reduce(function (result) { return result + 1; }, 0);
 }
 
 function getMeanScore(scores) {
@@ -86,15 +67,9 @@ function getMeanScore(scores) {
   const total = scores.reduce(function (previous, current) {
     return previous + current;
   }, 0);
-  var output = total / scores.length;
-  if (checkNumberIfFloat(output) == true) {
-    let n = output.toFixed(2);
-    return parseFloat(n)
 
-  } else {
-    return output
+  return parseFloat((total / scores.length).toFixed(2))
 
-  }
 }
 
 function simpleFizzBuzz(n) {

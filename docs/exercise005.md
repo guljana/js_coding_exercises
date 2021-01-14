@@ -36,7 +36,6 @@ There are small differences between an arrow function and a normal function. For
 
 ```javascript
 function add(a, b) {
-  console.log(arguments); // logs 10 and 9
   return a + b;
 }
 
@@ -47,7 +46,6 @@ But you can't do that in an arrow function!
 
 ```javascript
 const add = (a, b) => {
-  console.log(arguments); // ReferenceError, arguments is undefined!
   return a + b;
 };
 

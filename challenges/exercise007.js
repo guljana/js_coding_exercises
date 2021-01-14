@@ -75,7 +75,6 @@ const getScreentimeAlertList = (users, date) => {
 
         if(users[i].screenTime[j].date == date){
           if(users[i].screenTime[j].usage.twitter != undefined && users[i].screenTime[j].usage.twitter>0 ){
-           // console.log("out "+users[i].screenTime[j].usage.twitter);
             screentime+=users[i].screenTime[j].usage.twitter;
           }   if(users[i].screenTime[j].usage.instagram != undefined && users[i].screenTime[j].usage.instagram>0 ){
             screentime+=users[i].screenTime[j].usage.instagram;
@@ -96,8 +95,6 @@ const getScreentimeAlertList = (users, date) => {
     }
     screentime=0;
 }//end of out loop
- //console.log("users "+users);
-
   return userArr;
 };
 
