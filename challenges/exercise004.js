@@ -1,18 +1,18 @@
 function findSmallNums(nums) {
   if (!nums) throw new Error("nums is required");
-  if (nums.length == 0) return nums;
+  if (nums.length === 0) return nums;
   return nums.filter(word => word < 1);
 }
 
 function findNamesBeginningWith(names, char) {
   if (!names) throw new Error("names is required");
   if (!char) throw new Error("char is required");
-  return names.filter(name => name.charAt(0) == char);
+  return names.filter(name => name.charAt(0) === char);
 }
 
 function findVerbs(words) {
   if (!words) throw new Error("words is required");
-  return words.filter(name => name.substring(0, 3) == "to ");
+  return words.filter(name => name.substring(0, 3) === "to ");
 }
 
 function getIntegers(nums) {
@@ -29,7 +29,7 @@ function getSquareRoots(nums) {
   if (!nums) throw new Error("nums is required");
   const sqrArr = [];
   for (let i = 0; i < nums.length; i++) {
-    if (checkNumberIfFloat(Math.sqrt(nums[i])) == true) {
+    if (checkNumberIfFloat(Math.sqrt(nums[i])) === true) {
       sqrArr[i] = parseFloat(Math.sqrt(nums[i]).toFixed(2));
     } else {
       sqrArr[i] = Math.sqrt(nums[i]);
@@ -53,7 +53,6 @@ function getLongestSides(triangles) {
   return triangles.map(tri => Math.max(...tri));
 
 }
-
 module.exports = {
   findSmallNums,
   findNamesBeginningWith,

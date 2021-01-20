@@ -6,9 +6,8 @@
  */
 const sumMultiples = arr => {
   if (arr === undefined) throw new Error("arr is required");
-  return arr.filter((num) => { return num % 3 === 0 || num % 5 === 0; }).reduce(function (a, b) { return a + b; }, 0);
-};
-
+  return arr.filter((num) => { return num % 3 === 0 || num % 5 === 0; }).reduce((a, b) => { return a + b; }, 0);
+}
 /**
  * This function will receive a string of characters and should return true/false depending on whether it is a valid DNA string. A valid DNA string may contain characters C, G, T or A only.
  * @param {String} str
@@ -21,7 +20,7 @@ const isValidDNA = str => {
   } else {
     return false;
   }
-};
+}
 
 /**
  * This function will receive a valid DNA string (see above) and should return a string of the complementary base pairs. In DNA, T always pairs with A, and C always pairs with G. So a string of "ACTG" would have a complementary DNA string of "TGAC".
@@ -46,8 +45,7 @@ const getComplementaryDNA = str => {
     }
   }
   return complement;
-};
-
+}
 /**
  * This function should receive a number and return true/false depending on whether it is a prime number or not. A prime number is a number that can only be divided evenly by 1 and itself (for example, 7)
  * @param {Number} n
@@ -58,8 +56,7 @@ const isItPrime = n => {
   for (let i = 2; i < n; i++)
     if (n % i === 0) return false;
   return true;
-};
-
+}
 /**
  * This function should receive a number and return an array of n arrays, each filled with n items. The parameter "fill" should be used as the filler of the arrays. For example, given parameters 3 and "foo" the resulting matrix should be:
  * [
@@ -83,9 +80,7 @@ const createMatrix = (n, fill) => {
     }
   }
   return x;
-
-};
-
+}
 /**
  * This function takes an array of staff objects in the format:
  * [
@@ -104,16 +99,14 @@ const areWeCovered = (staff, day) => {
   let counter = 0;
   for (let i = 0; i < staff.length; i++) {
     for (let j = 0; j < staff[i].rota.length; j++) {
-      if (staff[i].rota[j] == day) {
+      if (staff[i].rota[j] === day) {
         counter++;
         if (counter >= 3) return true;
       }
     }
   }
   return false;
-
-};
-
+}
 module.exports = {
   sumMultiples,
   isValidDNA,

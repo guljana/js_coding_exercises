@@ -1,6 +1,6 @@
 function getSquares(nums) {
   if (nums === undefined) throw new Error("nums is required");
-  if (nums.length == 0) return nums;
+  if (nums.length === 0) return nums;
   else {
     return nums.map(n => Math.pow(n, 2));
   }
@@ -8,10 +8,10 @@ function getSquares(nums) {
 
 function camelCaseWords(words) {
   if (words === undefined) throw new Error("words is required");
-  if (words.length == 1) {
+  if (words.length === 1) {
     return words[0];
   } else {
-    var camelStr = words[0];
+    let camelStr = words[0];
     words.slice(1).forEach(word => {
       camelStr += word.substring(0, 1).toUpperCase() + word.substring(1, word.length);
     });
@@ -25,7 +25,6 @@ function getTotalSubjects(people) {
   people.forEach(person => subCount += person.subjects.length);
   return subCount;
 }
-
 
 function checkIngredients(menu, ingredient) {
   if (menu === undefined) throw new Error("menu is required");
@@ -43,11 +42,9 @@ function duplicateNumbers(arr1, arr2) {
     if (number1 === number2) {
       objMap[number1] = objMap[number1] + 1 || 1;
     }
-  }
-  ));
+  }));
   return Object.keys(objMap).map(e => Number(e));
 }
-
 module.exports = {
   getSquares,
   camelCaseWords,
