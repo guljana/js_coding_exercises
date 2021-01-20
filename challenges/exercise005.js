@@ -56,7 +56,7 @@ const getWordFrequencies = str => {
     string = str.toLowerCase(),
     matchedWords = string.match(pattern);
   const counts = matchedWords.reduce((stats, word) => {
-    if (stats.hasOwnProperty(word)) {
+    if (Object.prototype.hasOwnProperty.call(stats, word)) {
       stats[word] = stats[word] + 1;
     } else {
       stats[word] = 1;
